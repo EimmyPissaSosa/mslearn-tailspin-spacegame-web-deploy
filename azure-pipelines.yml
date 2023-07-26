@@ -12,6 +12,12 @@ variables:
   dotnetSdkVersion: '6.x'
 
 steps:
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'SonarLab'
+    scannerMode: 'MSBuild'
+    projectKey: 'SonarLab'
+    projectName: 'SonarLab'
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
@@ -52,7 +58,7 @@ steps:
     projects: '**/*.csproj'
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-    zipAfterPublish: true
+    zipAfterPublish: true 
 
 - publish: '$(Build.ArtifactStagingDirectory)'
   artifact: drop
