@@ -12,12 +12,6 @@ variables:
   dotnetSdkVersion: '6.x'
 
 steps:
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: 'SonarLab'
-    scannerMode: 'MSBuild'
-    projectKey: 'SonarLab'
-    projectName: 'SonarLab'
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
