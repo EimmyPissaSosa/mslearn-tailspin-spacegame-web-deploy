@@ -5,6 +5,7 @@ pool:
   vmImage: 'ubuntu-20.04'
   name: agentee
 
+
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
